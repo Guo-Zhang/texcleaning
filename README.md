@@ -16,15 +16,13 @@ pip install texcleaning
 
 Clean the temporary files on the working dictionary:
 ```
-texcleaning
+$ texcleaning
 ```
 
-or
-
-your path:
+or your path:
 
 ```
-texcleaning -p <yourpath>
+$ texcleaning -p <yourpath>
 ```
 
 ## To Do List
