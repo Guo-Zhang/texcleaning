@@ -1,0 +1,7 @@
+setup.py
+texcleaning.py
+texcleaning.egg-info/PKG-INFO
+texcleaning.egg-info/SOURCES.txt
+texcleaning.egg-info/dependency_links.txt
+texcleaning.egg-info/entry_points.txt
+texcleaning.egg-info/top_level.txt
