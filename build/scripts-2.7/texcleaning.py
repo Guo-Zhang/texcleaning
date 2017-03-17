@@ -1,4 +1,4 @@
-#!python
+#!/usr/local/opt/python/bin/python2.7
 # -*-coding:utf-8-*-
 
 # Author: Guo Zhang
@@ -7,12 +7,24 @@
 from __future__ import print_function
 
 import os
-import sys
 from optparse import OptionParser
 
 
 def texcleaning(path):
+    """
+    Clean temporary files created by tex engines
+
+    Parameters
+    ----------
+     path: the path of input dictionary
+
+    """
+    _delete = False
+
     for fname in os.listdir(path):
+        if os.path.isdir(os.path.join(path, fname)):
+            texcleaning(os.path.join(path, fname))
+
         name, ext = os.path.splitext(fname)
         latex_exts = [".aux",
                       ".fdb_latexmk",
@@ -27,15 +39,17 @@ def texcleaning(path):
         if (ext in latex_exts) and \
                 (name.replace(".synctex", "") + ".tex" in os.listdir(path)):
             os.remove(os.path.join(path, fname))
-            print("Deleted: %s" % (fname))
+            _delete = True
+            print("Deleted: %s" % (os.path.join(path, fname)))
 
-    print("All tex temporary files in %s cleaned." % (path))
+    if _delete:
+        print("All tex temporary files in %s cleaned." % (path))
 
 
 def main():
 
     usage = "usage: %prog [options] arg1 arg2"
-    parser = OptionParser(usage=usage, version="%prog 0.0.1.dev2")
+    parser = OptionParser(usage=usage, version="%prog 0.0.1.dev3")
     parser.add_option('-p', '--path', default=os.getcwd())
     (options, args) = parser.parse_args()
 
@@ -43,4 +57,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    texcleaning("/Users/zhangguo/CPP")

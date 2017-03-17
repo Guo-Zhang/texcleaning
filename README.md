@@ -7,8 +7,14 @@ Clean temporary files by tex engines
 
 ## Installation
 
+It may need the rights of administrators.
+
 ```
 pip install texcleaning
+```
+or
+```
+sudo pip install texcleaning
 ```
 
 

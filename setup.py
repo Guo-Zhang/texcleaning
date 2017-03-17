@@ -14,7 +14,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='texcleaning',
-    version='0.0.1.dev2',
+    version='0.0.1.dev4',
 
     packages=find_packages(
         exclude=['tests', 'tests.*', '*.tests', '*.tests.*']),
@@ -28,5 +28,5 @@ setup(
         'console_scripts': [
             'texcleaning=texcleaning:main',
         ],
-    },  # by setuptools
+    },
 )
